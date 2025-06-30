@@ -18,110 +18,13 @@
             scroll-behavior: smooth;
         }
 
-        /* Header & Navigation */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-            position: relative;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #007AFF;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1d1d1f;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #007AFF;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: #1d1d1f;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Mobile menu styles */
-        .mobile-nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            flex-direction: column;
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-nav-links.active {
-            display: flex;
-        }
-
-        .mobile-nav-links a {
-            padding: 15px 0;
-            text-decoration: none;
-            color: #1d1d1f;
-            font-weight: 500;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            transition: color 0.3s ease;
-        }
-
-        .mobile-nav-links a:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-nav-links a:hover {
-            color: #007AFF;
-        }
-
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 120px 20px 80px;
+            padding: 80px 20px;
             text-align: center;
-            min-height: 70vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -245,9 +148,14 @@
             text-align: left;
         }
 
+        /* About Section with background */
+        .about-section {
+            background: #f5f5f7;
+        }
+
         /* Contact Form */
         .contact-section {
-            background: #f5f5f7;
+            background: #f8f9fa;
         }
 
         .form-container {
@@ -361,7 +269,7 @@
             border-top: 1px solid #424245;
         }
 
-        /* Impressum Modal */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -402,14 +310,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
             .hero h1 {
                 font-size: 32px;
             }
@@ -442,33 +342,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="#home" class="logo">AM Montage</a>
-            <ul class="nav-links">
-                <li><a href="#home">Start</a></li>
-                <li><a href="#services">Leistungen</a></li>
-                <li><a href="#about">Über uns</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-            <div class="mobile-menu" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <!-- Mobile navigation -->
-            <div class="mobile-nav-links" id="mobileNavLinks">
-                <a href="#home" onclick="closeMobileMenu()">Start</a>
-                <a href="#services" onclick="closeMobileMenu()">Leistungen</a>
-                <a href="#about" onclick="closeMobileMenu()">Über uns</a>
-                <a href="#contact" onclick="closeMobileMenu()">Kontakt</a>
-            </div>
-        </nav>
-    </header>
-
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
             <h1>AM Montage</h1>
             <p>Professionelle Montagearbeiten von Arben Ademi - Ihr zuverlässiger Partner für alle Montagedienstleistungen in Wesseling und Umgebung</p>
@@ -477,7 +352,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section">
+    <section class="section">
         <h2>Unsere Leistungen</h2>
         <p>Wir bieten Ihnen professionelle Montagearbeiten mit höchster Qualität und Zuverlässigkeit</p>
         
@@ -516,7 +391,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section class="section about-section">
         <h2>Über AM Montage</h2>
         <p>Mit langjähriger Erfahrung und handwerklicher Präzision steht Arben Ademi für qualitativ hochwertige Montagearbeiten in Wesseling und der Region. Vertrauen Sie auf unsere Expertise und unseren zuverlässigen Service.</p>
     </section>
@@ -568,7 +443,6 @@
             <div class="footer-links">
                 <a href="#" onclick="openModal('impressum')">Impressum</a>
                 <a href="#" onclick="openModal('datenschutz')">Datenschutz</a>
-                <a href="#contact">Kontakt</a>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 AM Montage Wesseling - Arben Ademi. Alle Rechte vorbehalten.</p>
@@ -622,7 +496,10 @@
             Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
 
             <h3>2. Hosting</h3>
-            <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
+            <p>Wir hosten unsere Website auf den Servern von GitHub Pages, einem Dienst der GitHub, Inc. Die Bereitstellung der Website erfolgt im Rahmen einer Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
+            <p><strong>Anbieter:</strong> GitHub, Inc. 88 Colin P. Kelly Jr Street San Francisco, CA 94107 USA</p>
+            <p>GitHub ist nach dem EU-U.S. Data Privacy Framework zertifiziert: <a href="https://www.dataprivacyframework.gov" target="_blank" style="color: #007AFF;">https://www.dataprivacyframework.gov</a></p>
+            <p>Weitere Informationen zum Datenschutz bei GitHub finden Sie hier: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement" target="_blank" style="color: #007AFF;">https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement</a></p>
 
             <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
             <h4>Datenschutz</h4>
@@ -634,27 +511,6 @@
     </div>
 
     <script>
-        // Mobile menu functions
-        function toggleMobileMenu() {
-            const mobileNavLinks = document.getElementById('mobileNavLinks');
-            mobileNavLinks.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const mobileNavLinks = document.getElementById('mobileNavLinks');
-            mobileNavLinks.classList.remove('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const mobileNavLinks = document.getElementById('mobileNavLinks');
-            
-            if (!mobileMenu.contains(event.target) && !mobileNavLinks.contains(event.target)) {
-                mobileNavLinks.classList.remove('active');
-            }
-        });
-
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -735,7 +591,7 @@
             }
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for CTA button
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
